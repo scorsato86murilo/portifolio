@@ -1,0 +1,50 @@
+/* Header fixo */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #3D5222;;
+    z-index: 1000; /* Garante que o header fique sobreposto */
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: yellow;
+}
+
+/* Padding para ajustar o conteúdo abaixo do header fixo */
+.content-padding {
+    padding-top: 42px; /* Ajuste conforme o tamanho do header */
+}
+
+/* Estiliza a coluna rolável (esquerda) */
+.scroll-column {
+    height: calc(100vh - 70px); /* Garante altura total menos a altura do header */
+    overflow-y: auto; /* Permite rolagem na coluna */
+}
+
+/* Estiliza a coluna direita fixada no desktop */
+.fixed-right-column {
+    position: fixed;
+    top: 42px; /* A partir do header fixo */
+    right: 0;
+    width: 50%; /* Define a largura da coluna direita */
+    height: calc(100vh - 70px); /* Garante altura total menos a altura do header */
+    overflow-y: auto; /* Permite rolagem no conteúdo se for longo */
+}
+
+/* Ajuste para dispositivos móveis */
+@media (max-width: 768px) {
+    .fixed-right-column {
+        position: relative; /* Remove o posicionamento fixo no mobile */
+        top: auto; /* Reseta o topo */
+        right: auto; /* Reseta o lado direito */
+        width: 100%; /* A largura ocupa 100% */
+        height: auto; /* A altura será determinada pelo conteúdo */
+        margin-top: 20px; /* Espaçamento entre as colunas */
+    }
+
+    .scroll-column {
+        height: auto; /* Altura ajustada no mobile */
+    }
+}
