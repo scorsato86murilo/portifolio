@@ -4,12 +4,7 @@
 {% block head %}
     <link rel="stylesheet" href="{% static 'index/css/index.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Estilo para rolagem suave */
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'index/css/custom.css' %}">
 {% endblock %}
 
 {% block body %}
@@ -28,7 +23,9 @@
             </div>
 
             <hr>
-            <a href="#redes-sociais"><span class="badge rounded-pill text-bg-primary"> Conheça minhas redes sociais </span></a>
+            <a href="#redes-sociais" onclick="highlightRedesSociais()">
+                <span class="badge rounded-pill text-bg-primary">Conheça minhas redes sociais</span>
+            </a>
 
             <div class="cards-sistemas">
                 <div class="card mb-3" style="max-width: 540px;">
@@ -60,34 +57,46 @@
                 <!-- Exibindo a imagem com tamanho controlado -->
                 <img src="{{ lado_direito.foto.url }}" alt="Foto de {{ lado_direito.email }}" class="img-fluid rounded-start" style="max-width: 200px; height: auto; width: 100%;"><br><br>
 
-                <!-- Texto personalizado -->
-                <p class="frase">{{ lado_direito.texto }}</p>
+                <!-- Conteúdo de redes sociais a ser destacado -->
+                <div class="highlight-target">
+                    <!-- Email -->
+                    <a href="mailto:{{ lado_direito.email }}" target="_blank" style="color: white;">
+                        <i class="fas fa-envelope"> scorsato86murilo@gmail.com</i>
+                    </a><br><br>
 
-                <!-- Email -->
-                <a href="mailto:{{ lado_direito.email }}" target="_blank" style="color: white;">
-                    <i class="fas fa-envelope"> Email: scorsato86murilo@gmail.com</i>
-                </a><br><br>
+                    <a href="https://wa.me/+55{{ lado_direito.zap }}" target="_blank" style="color: #25D366;">
+                        <i class="fab fa-whatsapp"> zap +55 (16) 99984-6400</i>
+                    </a><br><br>
 
-               <a href="https://wa.me/+55{{ lado_direito.zap }}" target="_blank" style="color: #25D366;">
-                   <i class="fab fa-whatsapp"> +55 (16) 99984-6400</i>
-               </a><br><br>
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/{{ lado_direito.instagram }}" target="_blank" style="color: #E1306C;">
+                        <i class="fab fa-instagram"> Instagrram </i>
+                    </a><br><br>
 
-                <!-- Instagram -->
-                <a href="https://www.instagram.com/{{ lado_direito.instagram }}" target="_blank" style="color: #E1306C;">
-                    <i class="fab fa-instagram"> Saiba quem sou</i>
-                </a><br><br>
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/{{ lado_direito.linkedin }}" target="_blank" style="color: #0077B5;">
+                        <i class="fab fa-linkedin"> LinkeDin</i>
+                    </a><br><br>
 
-                <!-- LinkedIn -->
-                <a href="https://www.linkedin.com/in/{{ lado_direito.linkedin }}" target="_blank" style="color: #0077B5;">
-                    <i class="fab fa-linkedin"> Meus feitos profissionais</i>
-                </a><br><br>
-
-                <!-- YouTube -->
-                <a href="https://www.youtube.com/@{{ lado_direito.youtube }}" target="_blank" style="color: #FF0000;">
-                    <i class="fab fa-youtube"> Assuntos técnicos</i>
-                </a><br><br>
+                    <!-- YouTube -->
+                    <a href="https://www.youtube.com/@{{ lado_direito.youtube }}" target="_blank" style="color: #FF0000;">
+                        <i class="fab fa-youtube"> YouTube</i>
+                    </a><br><br>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    function highlightRedesSociais() {
+        const element = document.querySelector('.highlight-target');
+        element.classList.add('highlight');
+
+        // Remover o destaque após 2 segundos
+        setTimeout(() => {
+            element.classList.remove('highlight');
+        }, 2000);
+    }
+</script>
 {% endblock %}

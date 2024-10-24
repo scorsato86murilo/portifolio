@@ -83,3 +83,14 @@
 .frase{
  color: #c0c0c0;
 }
+
+/* Estilo para rolagem suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Classe para destaque temporário */
+.highlight {
+    background-color: orange;
+    transition: background-color 2s ease;
+}
