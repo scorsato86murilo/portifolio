@@ -67,3 +67,16 @@
     height: 100%; /* O iframe vai ocupar a altura completa do contêiner */
     border: 0;
 }
+.cards-sistemas {
+    display: flex;               /* Usando flexbox para o alinhamento */
+    justify-content: center;     /* Centraliza os itens horizontalmente */
+    align-items: center;         /* Centraliza os itens verticalmente (se necessário) */
+    flex-wrap: wrap;            /* Permite que os cards se movam para a próxima linha, se necessário */
+    gap: 20px;                  /* Espaço entre os cards */
+    padding: 20px;              /* Espaçamento interno do contêiner */
+}
+
+.card {
+    max-width: 540px;           /* Mantém a largura máxima do card */
+    width: 100%;                /* Faz o card ocupar a largura total disponível */
+}
