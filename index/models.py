@@ -12,3 +12,7 @@ class LadoDireito(models.Model):
 
     def __str__(self):
         return 'Editar Lado Direito'
+
+
+class VideoApresentacao(models.Model):
+    video = models.CharField(max_length=100)
