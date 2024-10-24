@@ -4,7 +4,12 @@
 {% block head %}
     <link rel="stylesheet" href="{% static 'index/css/index.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+    <style>
+        /* Estilo para rolagem suave */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 {% endblock %}
 
 {% block body %}
@@ -23,70 +28,65 @@
             </div>
 
             <hr>
-            <span class="badge rounded-pill text-bg-primary"> Aqui estão os meus projetos rodando com o GitHub. </span>
+            <a href="#redes-sociais"><span class="badge rounded-pill text-bg-primary"> Conheça minhas redes sociais </span></a>
+
             <div class="cards-sistemas">
-            <div class="card mb-3" style="max-width: 540px;">
-              <div class="row g-0">
-                <div class="col-md-4">
-                  <img src="..." class="img-fluid rounded-start" alt="...">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="..." class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-12">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
             </div>
 
+            <hr>
 
-<hr>
-
-         <br><br>   murilo barboso scorsato
-            murilo barboso scorsato <br><br>
-            murilo barboso scorsato <br><br>
-            murilo barboso scorsato <br><br>
-            murilo barboso scorsato <br><br>
-            murilo barboso scorsato <br><br>
-            murilo barboso scorsato <br><br>
-            murilo barboso scorsato <br><br>
-            murilo barboso scorsato <br><br>
-            murilo barboso scorsato <br><br>
-            murilo barboso scorsato <br><br>
-            murilo barboso scorsato <br><br>
+            <!-- Exemplo de conteúdo estático -->
+            <p>murilo barboso scorsato</p>
+            <p>murilo barboso scorsato</p>
+            <p>murilo barboso scorsato</p>
         </div>
 
         <!-- Coluna direita fixa -->
         <div class="col-md-6 fixed-right-column" style="background-color: #000000;">
-            <div class="lado-direito">
-                <p><font color="blue">murilo scorsato</font></p><br><br><br>
+            <div class="lado-direito text-center" id="redes-sociais"><br>
+                <!-- Exibindo a imagem com tamanho controlado -->
+                <img src="{{ lado_direito.foto.url }}" alt="Foto de {{ lado_direito.email }}" class="img-fluid rounded-start" style="max-width: 200px; height: auto; width: 100%;"><br><br>
+
+                <!-- Texto personalizado -->
+                <p class="frase">{{ lado_direito.texto }}</p>
+
+                <!-- Email -->
+                <a href="mailto:{{ lado_direito.email }}" target="_blank" style="color: white;">
+                    <i class="fas fa-envelope"> Entre em contato por email</i>
+                </a><br><br>
+
                 <!-- WhatsApp -->
-<a href="https://wa.me/your-number" target="_blank">
-    <i class="fab fa-whatsapp"> Contato mais rápido comigo</i>
-</a><br><br>
+                <a href="https://wa.me/{{ lado_direito.zap }}" target="_blank" style="color: #25D366;">
+                    <i class="fab fa-whatsapp"> Contato mais rápido comigo</i>
+                </a><br><br>
 
-<!-- Instagram -->
-<a href="https://www.instagram.com/your-profile" target="_blank">
-    <i class="fab fa-instagram"> Saiba quem sou</i>
-</a><br><br>
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/{{ lado_direito.instagram }}" target="_blank" style="color: #E1306C;">
+                    <i class="fab fa-instagram"> Saiba quem sou</i>
+                </a><br><br>
 
-<!-- LinkedIn -->
-<a href="https://www.linkedin.com/in/your-profile" target="_blank">
-    <i class="fab fa-linkedin"> Meus feitos profissionais</i>
-</a><br><br>
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/{{ lado_direito.linkedin }}" target="_blank" style="color: #0077B5;">
+                    <i class="fab fa-linkedin"> Meus feitos profissionais</i>
+                </a><br><br>
 
-<!-- YouTube -->
-<a href="https://www.youtube.com/@muriloscorsato9021" target="_blank">
-    <i class="fab fa-youtube"> Geralmente falo sobre assuntos mais técnicos</i>
-</a><br><br>
-
-                murilo barboso scorsato <br><br>
-                murilo barboso scorsato <br><br>
-                murilo barboso scorsato <br><br>
-                murilo barboso scorsato <br><br>
-                murilo barboso scorsato <br><br>
-                murilo barboso scorsato <br><br>
+                <!-- YouTube -->
+                <a href="https://www.youtube.com/@{{ lado_direito.youtube }}" target="_blank" style="color: #FF0000;">
+                    <i class="fab fa-youtube"> Assuntos técnicos</i>
+                </a><br><br>
             </div>
         </div>
     </div>

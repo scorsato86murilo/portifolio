@@ -80,3 +80,6 @@
     max-width: 540px;           /* Mantém a largura máxima do card */
     width: 100%;                /* Faz o card ocupar a largura total disponível */
 }
+.frase{
+ color: #c0c0c0;
+}
