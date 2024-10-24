@@ -14,7 +14,7 @@
 
 /* Padding para ajustar o conteúdo abaixo do header fixo */
 .content-padding {
-    padding-top: 42px; /* Ajuste conforme o tamanho do header */
+    padding-top: 50px; /* Ajuste conforme o tamanho do header */
 }
 
 /* Estiliza a coluna rolável (esquerda) */
@@ -47,4 +47,23 @@
     .scroll-column {
         height: auto; /* Altura ajustada no mobile */
     }
+}
+.video {
+    position: relative;
+    width: 100%; /* O vídeo ocupará 100% da largura do contêiner */
+    max-width: 100%; /* Garante que o vídeo não ultrapasse a largura do contêiner */
+    height: auto; /* Ajuste automático da altura */
+    overflow: hidden;
+    padding-bottom: 56.25%; /* Mantém a proporção 16:9 */
+    background: #000; /* Cor de fundo enquanto o vídeo carrega */
+    margin: 0 auto; /* Centraliza o vídeo horizontalmente */
+}
+
+.video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* O iframe vai ocupar 100% da largura do contêiner */
+    height: 100%; /* O iframe vai ocupar a altura completa do contêiner */
+    border: 0;
 }
