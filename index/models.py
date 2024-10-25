@@ -26,7 +26,8 @@ class Projeto(models.Model):
     img_projeto = models.ImageField(upload_to='img_projeto')
     titulo = models.CharField(max_length=70)
     descricao = models.TextField()
-    link = models.CharField(max_length=150)
+    link_sistema = models.CharField(max_length=150)
+    github = models.CharField(max_length=150)
 
     class Meta:
         ordering = ['ordem']
