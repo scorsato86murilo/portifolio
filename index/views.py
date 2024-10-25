@@ -8,7 +8,9 @@ def index(request):
         lado_direito = LadoDireito.objects.first()  # Retorna o primeiro registro de LadoDireito
         video = VideoApresentacao.objects.first()  # Retorna o primeiro registro de VideoApresentacao
 
-        return render(request, 'index.html', {'lado_direito': lado_direito})
+        return render(request, 'index.html', {'lado_direito': lado_direito,
+                                              'video': video,
+                                              })
     elif request.method == 'POST':
         return render(request, 'index.html')  # Ou redirecione para outra página
 
