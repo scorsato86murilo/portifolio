@@ -12,7 +12,7 @@
   </head>
   <body>
     <div class="container mt-5">
-      <h2 class="mb-4">Cadastro</h2>
+      <h2 class="mb-4">Entrar</h2>
       <form>
         <div class="mb-3">
           <label for="nome" class="form-label">Nome</label>
@@ -22,12 +22,9 @@
           <label for="senha" class="form-label">Senha</label>
           <input type="password" class="form-control" id="senha" placeholder="Digite sua senha">
         </div>
-        <div class="mb-3">
-          <label for="confirmaSenha" class="form-label">Confirmar Senha</label>
-          <input type="password" class="form-control" id="confirmaSenha" placeholder="Confirme sua senha">
-        </div>
-        <button type="submit" class="btn btn-primary">Salvar</button>
-        <a href="{% url 'sistema_login_entrar' %}" class="d-block text-center mt-3">Já tenho cadastro. Entrar</a>
+        <button type="submit" class="btn btn-primary">Entrar</button>
+        <a href="{% url 'sistema_login' %}" class="d-block text-center mt-3">Não tenho cadastro</a>
+        <a href="#" class="d-block mt-3">Esqueci minha senha</a>
       </form>
     </div>
 
