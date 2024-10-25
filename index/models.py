@@ -19,3 +19,16 @@ class VideoApresentacao(models.Model):
 
     def __str__(self):
         return self.video
+
+
+class Projeto(models.Model):
+    ordem = models.IntegerField()
+    img_projeto = models.ImageField(upload_to='img_projeto')
+    titulo = models.CharField(max_length=70)
+    descricao = models.TextField()
+
+    class Meta:
+        ordering = ['ordem']
+
+    def __str__(self):
+        return self.titulo
