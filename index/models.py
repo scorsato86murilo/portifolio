@@ -4,10 +4,10 @@ from django.db import models
 class LadoDireito(models.Model):
     foto = models.ImageField(upload_to='img_Direito')
     zap = models.CharField(max_length=30)
-    instagram = models.CharField(max_length=50)
-    youtube = models.CharField(max_length=50)
-    linkedin = models.CharField(max_length=50)
-    email = models.EmailField(max_length=50)
+    instagram = models.CharField(max_length=70)
+    youtube = models.CharField(max_length=70)
+    linkedin = models.CharField(max_length=70)
+    email = models.EmailField(max_length=70)
     texto = models.TextField()
 
     def __str__(self):
