@@ -12,7 +12,10 @@
       <h2 class="mb-4">Bem-vindo, <span id="nomeUsuario">Nome do Usuário</span>!</h2>
       <div class="d-flex justify-content-center mb-4">
         <button class="btn btn-danger me-2" onclick="excluirCadastro()">Excluir Cadastro</button>
-        <button class="btn btn-secondary" onclick="logout()">Logout</button>
+           <button class="btn btn-dark">
+          <a class="dropdown-item" href="{% url 'logout_view' %}">
+          Sair</a>
+        </button>
       </div>
     </div>
 

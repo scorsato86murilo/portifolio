@@ -6,4 +6,5 @@ urlpatterns = [
     path('sistema_login_entrar', views.sistema_login_entrar, name='sistema_login_entrar'),
     path('sistema_login_plataforma', views.sistema_login_plataforma, name='sistema_login_plataforma'),
     path('recuperar_senha', views.enviar_email, name='enviar_email'),
+    path('logout_view_', views.logout_view, name='logout_view')
 ]

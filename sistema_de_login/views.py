@@ -1,5 +1,5 @@
 import random
-from django.contrib.auth import authenticate, login, get_user_model
+from django.contrib.auth import authenticate, login, get_user_model, logout
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib import messages
@@ -131,3 +131,9 @@ def enviar_email(request):
             print(traceback.format_exc())
 
         return render(request, 'recuperar_senha.html')
+
+
+def logout_view(request):
+    logout(request)
+    # Redirecione para onde você deseja após o logout
+    return redirect('sistema_login_entrar')
