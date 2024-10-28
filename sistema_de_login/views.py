@@ -77,12 +77,23 @@ def sistema_login_entrar(request):
 @login_required(login_url='sistema_login')
 def sistema_login_plataforma(request):
     nome = request.user.username
-    if request.method == 'GET':
-        return render(request, 'sistema_login_plataforma.html', {'nome': nome,
 
-                                                                 })
-    if request.method == 'POST':
-        return render(request, 'sistema_login_plataforma.html')
+    if request.method == 'GET':
+        return render(request, 'sistema_login_plataforma.html', {'nome': nome})
+
+    elif request.method == 'POST':
+        try:
+            # Confirma que o usuário existe e tenta deletá-lo
+            user = User.objects.get(username=nome)
+            user.delete()
+            messages.success(request, 'Usuário deletado com sucesso.')
+            return redirect('sistema_login')
+        except User.DoesNotExist:
+            # Mensagem de erro se o usuário não for encontrado
+            messages.error(request, 'Usuário não encontrado.')
+            return redirect('sistema_login_plataforma')
+
+    return render(request, 'sistema_login_plataforma.html', {'nome': nome})
 
 
 def enviar_email(request):
