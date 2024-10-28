@@ -73,7 +73,10 @@ def sistema_login_entrar(request):
 
 
 def sistema_login_plataforma(request):
-    return render(request, 'sistema_login_plataforma.html')
+    if request.method == 'GET':
+        return render(request, 'sistema_login_plataforma.html')
+    if request.method == 'POST':
+        return render(request, 'sistema_login_plataforma.html')
 
 
 def enviar_email(request):
