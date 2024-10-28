@@ -1,5 +1,6 @@
 import random
 from django.contrib.auth import authenticate, login, get_user_model, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib import messages
@@ -58,20 +59,22 @@ def sistema_login_entrar(request):
 
     elif request.method == 'POST':
         username = request.POST.get('username')
-        password = request.POST.get('senha')
+        password = request.POST.get('password')
 
         # Autentica o usuário
         user = authenticate(username=username, password=password)
 
-        if user is not None:
+        if user:
             # Se a autenticação foi bem-sucedida, faz login do usuário
             login(request, user)
-            return redirect('sistema_login_plataforma')
+            return redirect('sistema_login_plataforma')  # Redireciona para a plataforma após login
         else:
+            # Se a autenticação falhar, retorna à página de cadastro ou exibe uma mensagem de erro
             messages.error(request, 'Usuário ou senha incorretos. Tente novamente ou cadastre-se.')
-            return redirect('sistema_login')
+            return redirect('sistema_login_entrar')
 
 
+@login_required(login_url='sistema_login')
 def sistema_login_plataforma(request):
     if request.method == 'GET':
         return render(request, 'sistema_login_plataforma.html')
