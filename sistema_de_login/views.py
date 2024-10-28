@@ -76,8 +76,11 @@ def sistema_login_entrar(request):
 
 @login_required(login_url='sistema_login')
 def sistema_login_plataforma(request):
+    nome = request.user.username
     if request.method == 'GET':
-        return render(request, 'sistema_login_plataforma.html')
+        return render(request, 'sistema_login_plataforma.html', {'nome': nome,
+
+                                                                 })
     if request.method == 'POST':
         return render(request, 'sistema_login_plataforma.html')
 
