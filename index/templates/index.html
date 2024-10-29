@@ -30,24 +30,28 @@
                 <h3><i class="fab fa-github"></i> Cógidos deste site</h3>
             </a>
 
+           {% for item in projetos %}
+    <a href="{% url item.link_sistema %}" target="_blank">
 
-            <div class="cards-sistemas">
-                <div class="card mb-3" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="..." class="img-fluid rounded-start" alt="img-sistema">
-                        </div>
-                        <div class="col-md-12">
-                            <div class="card-body">
-                                <h5 class="card-title">título</h5>
-                                <p class="card-text">descrição</p>
-                            </div>
+        <div class="cards-sistemas">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="{{ item.img_projeto.url }}" class="img-fluid rounded-start" alt="img-sistema">
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ item.titulo }}</h5>
+                            <p class="card-text">{{ item.descricao }}</p>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </a>
+    <hr>
+{% endfor %}
 
-            <hr>
 
             <!-- Exemplo de conteúdo estático -->
             <p>murilo barboso scorsato</p>
