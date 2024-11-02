@@ -90,3 +90,15 @@
     background-color: orange;
     transition: background-color 2s ease;
 }
+
+.bg-lime-green {
+    background-color: #F2F2F2;
+    color: white;
+}
+
+.responsive-badge {
+    font-size: calc(1rem + 1vw); /* Aumenta com o tamanho da tela */
+    padding: 0.1em 1em;
+    border-radius: 0.1em;
+    color: green;
+    }

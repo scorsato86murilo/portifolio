@@ -8,7 +8,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('index.urls')),
     path('', include('sistema_de_login.urls')),
-    path('api/', api.urls)
+    path('api/', api.urls, name='docs'),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

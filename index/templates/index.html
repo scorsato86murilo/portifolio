@@ -23,12 +23,48 @@
             </div>
 
             <hr>
+
             <a href="#redes-sociais" onclick="highlightRedesSociais()">
                 <h2><span class="badge text-bg-primary">Conheça as minhas redes sociais</span></h2>
             </a>
-            <a href="https://github.com/scorsato86murilo/portifolio/tree/master/index" target="_blank" style="text-decoration: none; color: black;">
-                <h3><i class="fab fa-github"></i> Cógidos deste site</h3>
+            <hr>
+
+<span class="badge bg-lime-green responsive-badge">Projetos Ativos com github:</span>
+            <br> <br>
+                        <a href="https://github.com/scorsato86murilo/portifolio/tree/master/livros" target="_blank" style="text-decoration: none; color: black;">
+                <h3><i class="fab fa-github"></i> github API 'Django-Ninja'</h3>
             </a>
+            <hr>
+
+
+
+             <a href="#" target="_blank">
+
+        <div class="cards-sistemas">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="http://127.0.0.1:8000/api/docs" class="img-fluid rounded-start" alt="img-sistema">
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card-body">
+                            <a href="http://127.0.0.1:8000/api/docs" target="_blank">
+                                <h5 class="card-title">API Django NINJA</h5></a>
+                            <p class="card-text">Django Ninja é um framework moderno para construção de APIs em
+                                Django, que utiliza a tipagem do Python para validação automática de dados e
+                                documentação interativa com Swagger</p>
+
+                            <a href="https://github.com/scorsato86murilo/portifolio/tree/master/livros" target="_blank">
+    <p class="card-text"><i class="fab fa-github"></i>API</p>
+</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <hr>
 
            {% for item in projetos %}
     <a href="{% url item.link_sistema %}" target="_blank">
@@ -41,14 +77,19 @@
                     </div>
                     <div class="col-md-12">
                         <div class="card-body">
-                            <h5 class="card-title">{{ item.titulo }}</h5>
+                            <h5 class="card-title">{{ item.titulo }}</h5></a>
                             <p class="card-text">{{ item.descricao }}</p>
+
+                            <a href="https://github.com/scorsato86murilo/portifolio/tree/master/{{ item.github }}" target="_blank">
+    <p class="card-text"><i class="fab fa-github"></i> {{ item.github }}</p>
+</a>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </a>
+
     <hr>
 {% endfor %}
 
