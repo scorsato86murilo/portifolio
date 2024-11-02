@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'index',
     'sistema_de_login',
+    'livros',
 
 ]
 
