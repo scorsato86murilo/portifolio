@@ -30,6 +30,8 @@ INSTALLED_APPS = [
     'index',
     'sistema_de_login',
     'livros',
+    'gestao_salario',
+
 
 ]
 
