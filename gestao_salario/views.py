@@ -1,3 +1,15 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def gestao_salario_cadastro(request):
+    if request.method == 'GET':
+        return render(request, 'gestao_salario_cadastro.html')
+    if request.method == 'POST':
+        return render(request, 'gestao_salario_cadastro.html')
+
+
+def gestao_salario_entrar(request):
+    if request.method == 'GET':
+        return render(request, 'gestao_salario_entrar.html')
+    if request.method == 'POST':
+        return render(request, 'gestao_salario_entrar.html')
