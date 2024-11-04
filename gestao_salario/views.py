@@ -13,3 +13,10 @@ def gestao_salario_entrar(request):
         return render(request, 'gestao_salario_entrar.html')
     if request.method == 'POST':
         return render(request, 'gestao_salario_entrar.html')
+
+
+def gestao_salario_painel(request):
+    if request.method == 'GET':
+        return render(request, 'gestao_salario_painel.html')
+    if request.method == 'POST':
+        return render(request, 'gestao_salario_painel.html')

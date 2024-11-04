@@ -24,3 +24,42 @@ body {
 h1 {
   color: #ffdddd; /* Título em tom bordô claro */
 }
+
+.container2 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Divide em 4 colunas iguais */
+    width: 100%; /* Ocupa toda a largura da tela */
+}
+
+.col1, .col2, .col3, .col4 {
+    padding: 20px;
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+
+.col1 { background-color: #A5695F; }
+.col2 { background-color: #BC8F8F; }
+.col3 { background-color: #915F6D; }
+.col4 { background-color: #C87F7F; }
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .container2 {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .container2 {
+        grid-template-columns: 1fr; /* 1 coluna em celulares */
+    }
+}
+.titulo{
+    color: yellow;
+}
+.badge-large {
+    font-size: 0.9rem; /* Aumenta o tamanho da fonte */
+    padding: 0.4em 5.0em; /* Aumenta o padding para mais espaço */
+}
