@@ -9,20 +9,31 @@
     <link rel="stylesheet" href="{% static 'gestao_salario/css/gestao_salario.css' %}">
   </head>
   <body>
+
+   <div class="message">
+            {% if messages %}
+            {% for message in messages %}
+        <div class="alert {{message.tags}}">
+            <center>{{message}}</center>
+        </div>
+            {% endfor %}
+            {% endif %}
+    </div>
+
     <div class="container mt-5 text-center">
       <h1>Cadastrar</h1>
-      <form>
+      <form action="{% url 'gestao_salario_cadastro' %}" method="post">{% csrf_token %}
         <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" placeholder="Digite seu email">
+          <label for="nome" class="form-label">Nome</label>
+          <input type="nome" class="form-control" id="nome" placeholder="Digite seu Nome" name="username">
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">Senha</label>
-          <input type="password" class="form-control" id="password" placeholder="Digite sua senha">
+          <input type="password" class="form-control" id="password" placeholder="Digite sua senha" name="password">
         </div>
           <div class="mb-3">
-          <label for="password" class="form-label">Corfirme Senha</label>
-          <input type="password" class="form-control" id="password2" placeholder="Confirme sua senha">
+          <label for="password2" class="form-label">Corfirme Senha</label>
+          <input type="password" class="form-control" id="password2" placeholder="Confirme sua senha" name="password2">
         </div>
         <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
         <br><br>

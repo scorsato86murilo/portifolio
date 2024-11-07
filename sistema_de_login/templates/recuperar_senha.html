@@ -9,28 +9,30 @@
 
 </head>
 <body>
-    <div class="container">
-        <label class="voltar">
-            <a href="{% url 'sistema_login_entrar' %}"><h4>Voltar</h4></a>
-        </label>
+
+    <div class="container"><br><br><hr>
+
         <hr>
         <h2>Recuperar Senha</h2>
         <h3>Digite o E-mail cadastrado</h3>
         <hr>
-        <div class="message">
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="alert {{message.tags}}">
-                        <center>{{message}}</center>
-                    </div>
-                {% endfor %}
-            {% endif %}
-        </div>
         <form action="{% url 'enviar_email' %}" method="post">
             {% csrf_token %}
             <label for="email_recuperar">Email:</label>
             <input type="email" id="email_recuperar" placeholder="Email para a nova senha" name="email_recuperar">
             <input type="submit" value="NOVA SENHA">
+                   <div class="message">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert {{message.tags}}">
+                        <center><font color="red">{{message}}</font></center>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div><hr>
+                    <label class="voltar">
+            <a href="{% url 'sistema_login_entrar' %}"><h4>Voltar</h4></a>
+        </label>
         </form>
     </div>
 </body>

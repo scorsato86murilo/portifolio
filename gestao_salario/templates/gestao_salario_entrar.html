@@ -9,16 +9,30 @@
     <link rel="stylesheet" href="{% static 'gestao_salario/css/gestao_salario.css' %}">
   </head>
   <body>
+
+     <div class="message">
+            {% if messages %}
+            {% for message in messages %}
+        <div class="alert {{message.tags}}">
+            <center>{{message}}</center>
+        </div>
+            {% endfor %}
+            {% endif %}
+    </div>
+
+
+
     <div class="container mt-5 text-center">
-      <h1>Entrar</h1>
-      <form>
+
+        <h1>Entrar</h1>
+      <form action="{% url 'gestao_salario_entrar' %}"  method="post">{% csrf_token %}
         <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" placeholder="Digite seu email">
+          <label for="nome" class="form-label">Nome</label>
+          <input type="nome" class="form-control" id="nome" placeholder="Digite seu Nome" name="username">
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">Senha</label>
-          <input type="password" class="form-control" id="password" placeholder="Digite sua senha">
+          <input type="password" class="form-control" id="password" placeholder="Digite sua senha" name="password">
         </div>
         <button type="submit" class="btn btn-primary w-100">Entrar</button>
         <br><br>
