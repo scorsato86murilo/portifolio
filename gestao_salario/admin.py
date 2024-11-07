@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from gestao_salario.models import Salario
+
+admin.site.register(Salario)

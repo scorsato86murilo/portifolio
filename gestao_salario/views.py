@@ -1,7 +1,10 @@
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib import messages
+
+from gestao_salario.models import Salario
 
 
 def gestao_salario_cadastro(request):
@@ -62,12 +65,26 @@ def gestao_salario_entrar(request):
             return redirect('gestao_salario_entrar')
 
 
+@login_required
 def gestao_salario_painel(request):
-    nome = request.user.username
-    if request.method == 'GET':
-        return render(request, 'gestao_salario_painel.html', {'nome': nome, })
+    nome = request.user
+
     if request.method == 'POST':
-        return render(request, 'gestao_salario_painel.html', {'nome': nome, })
+        salario_valor = request.POST.get('salario')
+
+        if salario_valor:
+            # Cria uma nova instância de Salario associada ao usuário logado
+            salario = Salario(usuario=request.user, salario=float(salario_valor))
+            salario.save()
+
+    # Pega o último salário do usuário logado (independente de GET ou POST)
+    ultimo_salario = Salario.objects.filter(usuario=request.user).order_by('-id').first()
+
+    # Renderiza a página com os dados
+    return render(request, 'gestao_salario_painel.html', {
+        'nome': nome,
+        'ultimo_salario': ultimo_salario  # Passa o último salário para o template
+    })
 
 
 def logout_view_sair(request):
