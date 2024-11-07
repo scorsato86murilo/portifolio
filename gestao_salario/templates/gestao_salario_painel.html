@@ -30,7 +30,35 @@
         <label class="titulo"></label>
         <br><br>
         <h6>Salário: {{ultimo_salario}}</h6>
-        <button type="button" class="btn btn-dark">Tópicos de gastos</button><br><br>
+
+        <!-- Button trigger modal -->
+<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Adicione seus gastos
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Seus gastos</h1>
+
+        <button  class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <font color="blue"> Seus gastos em reais R$ </font><br><br>
+       <input type="number" placeholder="Alimentos"><hr>
+        <input type="number" placeholder="Saúde"><hr>
+        <input type="number" placeholder="Lazer"><hr>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">X FECHAR</button>
+        <button type="submit" class="btn btn-primary">- SALVAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+        <br><br>
         <button type="button" class="btn btn-success">Gráficos/Editar Salário</button><br><br>
         <a href="{% url 'logout_view_sair' %}"><button type="button" class="btn btn-danger">SAIR</button></a><br><br>
       </div>
