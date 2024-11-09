@@ -8,3 +8,4 @@ urlpatterns = [
     path('logout_view_sair', views.logout_view_sair, name='logout_view_sair'),
 
 ]
+
