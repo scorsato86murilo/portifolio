@@ -116,7 +116,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'templates/static')]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Adicionei para o render
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # Adicionei para o render
 
 
 # Default primary key field type
@@ -131,3 +131,5 @@ MESSAGE_TAGS = {
     constants.INFO: 'alert-info',
     constants.WARNING: 'alert-warning',
 }
+
+#  python manage.py migrate && python manage.py collectstatic --noinput && gunicorn sistema_django.wsgi:application
