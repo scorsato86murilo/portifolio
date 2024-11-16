@@ -104,15 +104,22 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+# URL para acessar arquivos estáticos
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'templates/static')]
 
-# Static files settings for production
+# Diretórios com arquivos estáticos adicionais
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'templates/static'),  # Não incluir STATIC_ROOT aqui
+]
+
+# Caminho onde os arquivos estáticos serão coletados na produção
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Configuração de WhiteNoise (somente em produção)
 if not DEBUG:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'templates/static')
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Media files
+# Media files (uploads de usuários)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
